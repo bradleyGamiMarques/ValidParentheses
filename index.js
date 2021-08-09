@@ -52,11 +52,17 @@ const isValid = (s) => {
   return stack.empty();
 };
 // Expected Output: true
-console.log(isValid(''));
+console.log(isValid('()'));
+// Expected output: true
+console.log(isValid('()[]{}'));
 // Expected Output: true
 console.log(isValid('([{}])'));
 // Expected output: true
-console.log(isValid('()'));
+console.log(isValid('([])'));
+// Expected output: false
+console.log(isValid('(]'));
+// Expected output: false
+console.log(isValid('([)]'));
 // Expected output: false
 console.log(isValid('([{])'));
 // Expected output: false
@@ -65,3 +71,11 @@ console.log(isValid('(])'));
 console.log(isValid('('));
 // Expected output: false
 console.log(isValid(')'));
+// Expected output: false
+console.log(isValid('{'));
+// Expected output: false
+console.log(isValid('}'));
+// Expected output: false
+console.log(isValid('['));
+// Expected output: false
+console.log(isValid(']'));
