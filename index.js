@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 class Node {
   constructor(value) {
     this.value = value;
@@ -33,13 +34,13 @@ class Stack {
     return temp.value;
   }
   empty() {
-    if (this.size === 0) return true;
-    return false;
+    return this.size === 0 ? true : false;
   }
 }
 
 const map = {'(': ')', '{': '}', '[': ']'};
 const isValid = (s) => {
+  if (s.length % 2 !== 0) return false;
   const stack = new Stack();
   for (const i of s) {
     if (i === '(' || i === '{' || i == '[') {
@@ -50,5 +51,17 @@ const isValid = (s) => {
   }
   return stack.empty();
 };
-
+// Expected Output: true
+console.log(isValid(''));
+// Expected Output: true
 console.log(isValid('([{}])'));
+// Expected output: true
+console.log(isValid('()'));
+// Expected output: false
+console.log(isValid('([{])'));
+// Expected output: false
+console.log(isValid('(])'));
+// Expected output: false
+console.log(isValid('('));
+// Expected output: false
+console.log(isValid(')'));
